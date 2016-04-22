@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSV Plotter</title>
+	<script type="text/javascript" src="public/js/jquery-2.2.1.js"></script>
+	<script type="text/javascript" src="public/js/custom.js"></script>
+	<script type="text/javascript" src="public/js/plotly-latest.min.js"></script>
+
+</head>
+<body>
+	<div style="display: -webkit-inline-box">
+		<div id="test" style="width: 600px; height: 600px;"></div>
+	<div id="test2" style="width: 600px; height: 600px;"></div>
+	</div>
+	<div style="display: -webkit-inline-box">
+		<div id="test3" style="width: 600px; height: 600px"></div>
+		<div id="test4" style="width: 600px; height: 600px"></div>
+	</div>
+	
+		<script type="text/javascript">
+		function test(){
+	var test = document.getElementById('test');
+	var test2 = document.getElementById('test2');
+	var test3 = document.getElementById('test3');
+	var test4 = document.getElementById('test4');
+	if(!test){
+		console.log('Could not find element');
+	} else {
+		//this is where you insert your data
+		var x_arr = [];
+		var y_arr = [];
+
+		var x_arr2 = [];
+		var y_arr2 = [];
+
+		var x_arr3 = [];
+		var y_arr3 = [];
+
+		var x_arr4 = [];
+		var y_arr4 = [];
+			
+		setInterval(function(){
+			var x = Math.random();
+			var y = Math.random();
+			x_arr.push(x);
+			y_arr.push(y);
+
+			x_arr2.push(x*2);
+			y_arr2.push(y*2);
+
+			x_arr3.push(x*3);
+			y_arr3.push(y*3);
+
+			x_arr4.push(x*4);
+			y_arr4.push(y*4);
+
+			var data1 = [{
+				x:x_arr,
+				y:y_arr,
+			}];
+
+			var data2 = [{
+				x:x_arr2,
+				y:y_arr2
+			}];
+
+			var data3 = [{
+				x:x_arr3,
+				y:y_arr3
+			}];
+
+			var data4 = [{
+				x:x_arr4,
+				y:y_arr4
+			}];
+
+			Plotly.newPlot(test,data1,{margin:{t:0}});
+			Plotly.newPlot(test2,data2,{margin:{t:0}});
+			Plotly.newPlot(test3,data3,{margin:{t:0}});
+			Plotly.newPlot(test4,data4,{margin:{t:0}});
+		},1000);
+
+	}
+}
+		test();
+	</script>
+</body>
+</html>
